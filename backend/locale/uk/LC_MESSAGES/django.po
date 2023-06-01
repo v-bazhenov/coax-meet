@@ -1,0 +1,197 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-21 20:23+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != "
+"11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
+"100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
+"(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
+#: authentication/apps.py:8
+msgid "authentication"
+msgstr "Аутентифікація"
+
+#: authentication/models.py:35
+msgid "email address"
+msgstr "Електронна адреса"
+
+#: authentication/models.py:36
+msgid "First name"
+msgstr "Імʼя"
+
+#: authentication/models.py:37
+msgid "Last name"
+msgstr "Прізвище"
+
+#: authentication/models.py:39
+msgid "Designates whether this user can access this admin site."
+msgstr ""
+"Визначає, чи може цей користувач отримати доступ до цього сайту "
+"адміністратора."
+
+#: authentication/models.py:40
+msgid "is staff"
+msgstr "Член персоналу"
+
+#: authentication/models.py:43
+msgid ""
+"Designates whether this user should be treated as active. Unselect this "
+"instead of deleting accounts."
+msgstr ""
+"Визначає, чи цей користувач повинен вважатися активним. Замість видалення "
+"оберіть це."
+
+#: authentication/models.py:45
+msgid "is active"
+msgstr "Активний"
+
+#: authentication/models.py:49
+msgid "Designates that this user should confirm email after password reset"
+msgstr ""
+"Визначає, що цей користувач повинен підтвердити електронну пошту після "
+"скидання пароля"
+
+#: authentication/models.py:51
+msgid "restoring_password"
+msgstr "Відновлення паролю"
+
+#: authentication/models.py:54
+msgid ""
+"Designates that this user has all permissions without explicitly assigning "
+"them."
+msgstr "Визначає, що цей користувач має всі дозволи без явного призначення їх."
+
+#: authentication/models.py:56
+msgid "is superuser"
+msgstr "Суперкористувач"
+
+#: authentication/models.py:64 meet/models.py:10
+msgid "user"
+msgstr "Користувач"
+
+#: authentication/models.py:65
+msgid "users"
+msgstr "Користувачі"
+
+#: meet/apps.py:8
+msgid "meet"
+msgstr "Зустріч"
+
+#: meet/models.py:11
+msgid "title"
+msgstr "Назва"
+
+#: meet/models.py:12
+msgid "description"
+msgstr "Опис"
+
+#: meet/models.py:14
+msgid "created_at"
+msgstr "Створено о"
+
+#: meet/models.py:15
+msgid "members"
+msgstr "Члени"
+
+#: meet/models.py:17
+msgid "weekdays"
+msgstr "Дні тижня"
+
+#: meet/models.py:18
+msgid "time"
+msgstr "Час"
+
+#: meet/models.py:20
+msgid "periodic_task"
+msgstr "Періодичне завдання"
+
+#: meet/models.py:22
+msgid "remind_before"
+msgstr "Нагадати за"
+
+#: meet/models.py:26
+msgid "room"
+msgstr "Кімната"
+
+#: meet/models.py:27
+msgid "rooms"
+msgstr "Кімнати"
+
+#: meet/service.py:42
+#, python-brace-format
+msgid "Invitation for {self.room.title}"
+msgstr "Запрошення для {self.room.title}"
+
+#: meet/service.py:43
+msgid ""
+"You have been invited to join {self.room.title} at {self.hour}:{self.minute."
+"zfill(2)} on "
+msgstr ""
+"Вас запросили приєднатися до {self.room.title} о {self.hour}:{self.minute."
+"zfill(2)} "
+
+#: meet/service.py:58
+#, python-brace-format
+msgid "Reminder for Meeting {self.room.title}"
+msgstr "Нагадування для зустрічі {self.room.title}"
+
+#: meet/service.py:61
+#, python-brace-format
+msgid "Reminder for Room {self.room.title}"
+msgstr "Нагадування для Кімнати {self.room.title}"
+
+#: meet/service.py:62
+msgid ""
+"You have a meeting scheduled for today at {self.hour}:{self.minute.zfill(2)}"
+msgstr ""
+"Ви маєте заплановану зустріч на сьогодні о {self.hour}:{self.minute.zfill(2)}"
+
+#: meet/service.py:78
+#, python-brace-format
+msgid "Updated invitation for {self.room.title}"
+msgstr "Оновлене запрошення для {self.room.title}"
+
+#: meet/service.py:79
+msgid ""
+"Your invitation has been updated. New time is {self.hour}:{self.minute."
+"zfill(2)} on "
+msgstr ""
+"Ваше запрошення було оновлено. Новий час {self.hour}:{self.minute.zfill(2)} "
+
+#: project/settings.py:155
+msgid "Ukrainian"
+msgstr "Українська"
+
+#: project/settings.py:156
+msgid "English"
+msgstr "Англійська"
+
+#: templates/admin/base_site.html:24
+#, fuzzy
+#| msgid "authentication"
+msgid "Documentation"
+msgstr "Аутентифікація"
+
+#: templates/admin/base_site.html:28
+#, fuzzy
+#| msgid "restoring_password"
+msgid "Change password"
+msgstr "Відновлення паролю"
+
+#: templates/admin/base_site.html:30
+msgid "Log out"
+msgstr "Вийти"

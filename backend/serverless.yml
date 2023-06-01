@@ -1,0 +1,66 @@
+service: coax-meet-aws-lambda
+
+plugins:
+  - serverless-dotenv-plugin
+  - serverless-prune-plugin
+  - serverless-python-requirements
+  - serverless-wsgi
+useDotenv: true
+
+custom:
+  dotenv:
+    logging: false
+  pythonRequirements:
+    dockerizePip: non-linux
+    zip: true
+    usePoetry: true
+  stage: production
+  wsgi:
+    app: project.wsgi.application
+    packRequirements: false
+  prune:
+    automatic: true
+    number: 3
+
+functions:
+  - app:
+      handler: wsgi_handler.handler
+      events:
+        - http: ANY /
+        - http: ANY /{proxy+}
+      timeout: 10
+
+provider:
+  name: aws
+  role: ${env:ROLE}
+  profile: arn:aws:iam::773229839915:user/coax-meet
+  region: eu-north-1
+  runtime: python3.10
+  versionFunctions: false
+  stage: production
+  timeout: 10
+  vpc:
+    securityGroupIds:
+      - ${env:SECURITY_GROUPS}
+    subnetIds:
+      - ${env:SUBNET1}
+      - ${env:SUBNET2}
+      - ${env:SUBNET3}
+  deploymentBucket:
+    name: ${env:DEPLOYMENT_BUCKET}
+  apiGateway:
+    shouldStartNameWithService: true
+  lambdaHashingVersion: 20201221
+
+package:
+  individually:
+    true
+  exclude:
+    - .env
+    - .git/**
+    - .github/**
+    - .serverless/**
+    - static/**
+    - .cache/**
+    - .pytest_cache/**
+    - node_modules/**
