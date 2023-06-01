@@ -20,19 +20,19 @@ from environs import Env
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+env = Env()
+env.read_env()
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-8h!sj0)!9m!802z_albkxt6(+&8+lo3#ddc^*s-x+8n$w+_(wj'
+SECRET_KEY = env.str('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool('DEBUG', False)
 
 ALLOWED_HOSTS = []
-
-env = Env()
-env.read_env()
 
 # Application definition
 
@@ -98,11 +98,11 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'password',
-        'HOST': '127.0.0.1',
-        'PORT': 5432,
+        'NAME': env.str('POSTGRES_NAME'),
+        'USER': env.str('POSTGRES_USER'),
+        'PASSWORD': env.str('POSTGRES_PASSWORD'),
+        'HOST': env.str('POSTGRES_HOST'),
+        'PORT': env.str('POSTGRES_PORT'),
         }
 }
 
@@ -225,7 +225,6 @@ DJOSER = {
     "TOKEN_MODEL": None,
 }
 
-REDIS_URL = 'redis://127.0.0.1:6379'
 
 EMAIL_BACKEND = CELERY_EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
@@ -233,24 +232,20 @@ SITE_NAME = "COAX Meet"
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'from_email@example.com'#env.str('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = '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'#env.str('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_USER = 'from_email@example.com'
+EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 587
 
 AWS_ACCESS_KEY_ID = env.str('AWS_ACCESS_KEY_ID', '')
 AWS_SECRET_ACCESS_KEY = env.str('AWS_SECRET_ACCESS_KEY', '')
 
 
-# CELERY_BROKER_URL = REDIS_URL
 CELERY_ACCEPT_CONTENT = ['application/json']
-# CELERY_RESULT_BACKEND = REDIS_URL
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
 CELERY_TIMEZONE = TIME_ZONE
 
-CELERY_accept_content = ['application/json']
-CELERY_task_serializer = 'json'
 CELERY_TASK_DEFAULT_QUEUE = 'coax-meet'
 CELERY_BROKER_URL = f"sqs://{AWS_ACCESS_KEY_ID}:{AWS_SECRET_ACCESS_KEY}@"
 CELERY_BROKER_TRANSPORT_OPTIONS = {
